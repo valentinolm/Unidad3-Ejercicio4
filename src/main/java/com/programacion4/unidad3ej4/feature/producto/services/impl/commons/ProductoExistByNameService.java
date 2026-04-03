@@ -15,6 +15,6 @@ public class ProductoExistByNameService implements IProductoExistByNameService {
     
     @Override
     public boolean existByName(String nombre) {
-        return productoRepository.existsByNombre(nombre);
+        return productoRepository.existsByNombreIgnoreCaseAndEstaEliminadoFalse(nombre);
     }
 }

@@ -1,6 +1,7 @@
 package com.programacion4.unidad3ej4.feature.producto.controllers.post;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ public class ProductoCreateController {
     @PostMapping
     public ResponseEntity<BaseResponse<ProductoResponseDto>> create(
         @Valid @RequestBody ProductoCreateRequestDto dto) {
-        return ResponseEntity.ok(
+        return ResponseEntity.status(HttpStatus.CREATED).body(
             BaseResponse.ok(
                 productoCreateService.create(dto), 
                 "Producto creado correctamente"

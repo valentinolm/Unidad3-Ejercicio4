@@ -8,6 +8,7 @@ import com.programacion4.unidad3ej4.feature.producto.models.Producto;
 @Repository
 public interface IProductoRepository extends CrudRepository<Producto, Long> {
 
-    boolean existsByNombre(String nombre);
-    
+    boolean existsByNombreIgnoreCaseAndEstaEliminadoFalse(String nombre);
+    java.util.List<Producto> findAllByEstaEliminadoFalse();
+    java.util.Optional<Producto> findByIdAndEstaEliminadoFalse(Long id);
 }
